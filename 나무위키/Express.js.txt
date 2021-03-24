@@ -1,0 +1,90 @@
+[[분류:라이브러리]]
+
+||<tablealign=right><tablebordercolor=#000000><bgcolor=#000000><tablewidth=350><-2> {{{#ffffff '''Express.js'''}}} ||
+||<bgcolor=#ffffff><-2> [[파일:express_logo.png|width=200]] ||
+||<bgcolor=#000000> {{{#ffffff '''종류'''}}} ||[[라이브러리]] ||
+||<bgcolor=#000000> {{{#ffffff '''라이선스'''}}} ||[[MIT 라이선스]] ||
+||<bgcolor=#000000> {{{#ffffff '''개발'''}}} ||[[스트롱루프]] ||
+||<bgcolor=#000000> {{{#ffffff '''버전'''}}} ||4 ||
+||<-2> [[https://expressjs.com/ko/|홈페이지]] ||
+
+[목차]
+[clearfix]
+== 개요 ==
+[[Node.js]]를 위한 빠르고 개방적인 간결한 웹 [[프레임워크]]이다.
+
+== 특징 ==
+== 사용해 보기 ==
+=== 설치 ===
+기본적으로 [[Node.js]]가 설치되어 있다면,[[npm]]을 통해서 다운 받을 수 있다.
+{{{$ npm install express --save
+}}} 
+==== Express 애플리케이션 생성기 ====
+
+'''설치법'''
+{{{$ npm install express-generator -g
+}}} 
+
+express-generator 를 사용하면 Express 에 기본골조를 바로 생성해준다. --개꿀--
+
+여러 옵션으로 view engine 이나 css 등을 선택할 수 있다.
+
+
+
+=== Hello world 예제 ===
+{{{#!syntax javascript
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+}}}
+다음과 같이 app.js를 작성합니다. 설명을 하자면, 앱을 시작하면 앱은 3000 포트에 대해서 연결이된다. URL '/' 에 대해서 'Hello World!' 라는 응답을 하고, 그 외의 URL 에는 [[404 Not Found]]로 응답합니다.
+
+{{{$ node app.js
+}}} 
+다음과 같이 실행 시키면 간단한 Hello World 웹서버가 시작되고, 터미널에는 'Example app listening at http://localhost:3000' 이라는 메세지가 나옵니다. 이제 http://localhost:3000 에 가면 Hello World 응답을 받을 수 있다.
+
+=== 라우팅 ===
+
+위의 예제에서
+
+{{{#!syntax javascript
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+}}}
+이 부분을 다시 한 번 보면, app 에 '''GET'''[* GET 말고, POST,DELECT,PUT 과 가app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+}}}
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+}}}
+이 부분을 다시 한 번 보면, app 에 '''GET'''[* GET 뿐만 아니라, POST,DELECT,PUT 과 같은 HTTP 요청 그리고 모든 요청에 관한 all도 지원한다.] 요청을 '/'[* URI 정의] 주소로 그뒤에 있는 콜백함수가 res.send 로 'Hello World!' 를 보낸다.
+
+경로를 정의할 때 [[정규표현식]]을 이용해서 작성할 수 있다.
+
+'''express.Router''' 를 사용하면 모듈 처럼 붙였다 땔 수 있는 핸들러를 만들 수 있다. 이는 미들웨어처럼 사용할 수 있다.
+=== 미들웨어 ===
+
+
+
+== 기타 ==
+ * 나무위키의 엔진인 [[the seed]] 도 Express.js 를 사용했다.--하지만 나무위키를 사용하는 그 누구도 2021년까지 Express.js 문서를 만들지 않았다--
+=== 같이보기 ===
+ * [[JavaScript]]
+ * [[Node.js]]
+ * [[npm]]
+ * [[the seed]]
