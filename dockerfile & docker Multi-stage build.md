@@ -103,3 +103,10 @@ Go의 버전 1.13을 베이스 이미지로 하고 'builder'라는 이름을 붙
 이후 개발용 환경의 **Docker 이미지로 빌드한 'greet'이라는 이름의 바이너리 파일(실행파일)을 제품 환경의 Docker 이미지로 복사**합니다. 이 때 **--from** 옵션을 사용하여 **'builder'**라는 이름의 이미지로 부터 복사한다는 것을 선언합니다. 그리고 복사한 실행 파일을 실행하는 명령어를 적습니다.
 
 이렇게 두 개의 Docker 이미지를 생성할 수 있는 Dockerfile을 작성하였습니다.
+
+---
+
+출처
+
+- [https://doc.skill.or.kr/dockerfile-docker-image](https://doc.skill.or.kr/dockerfile-docker-image)
+- [https://kimjingo.tistory.com/63](https://kimjingo.tistory.com/63)
